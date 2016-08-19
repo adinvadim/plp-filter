@@ -19,7 +19,7 @@ class Collection extends React.Component {
       })
     return (
       <div className={b}>
-      { this.props.isFilter && (<Filter filter={this.props.filter}/>) }
+      { this.props.filter && (<Filter filter={this.props.filter}/>) }
         <div className={b('items')}>
             {items}
         </div>

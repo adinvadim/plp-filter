@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="index">
         <div className="notice">Фильтрация курсов</div>
-        <FilterCollection isFilter={true}/>
+        <FilterCollection filter={this.props.filter}/>
       </div>
     )
   }
@@ -20,4 +20,11 @@ App.propTypes = {
 };
 
 
-export default connect(null)(App);
+function mapStateToProps(state) {
+  const props = {
+    filter : state.form.filter.values
+  }
+}
+
+
+export default connect()(App);
