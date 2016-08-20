@@ -31,12 +31,11 @@ class FilterCollection extends Collection {
 }
 
 
-function mapStateToProps(state) {
-  const values = state.form && state.form.filter && state.form.filter.values
+function mapStateToProps(state, ownProps) {
   const props = {
     items : filterItems(
               state.filterCollection.items,
-              values
+              ownProps.filter
             ),
   }
   return props;
