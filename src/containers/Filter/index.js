@@ -65,6 +65,14 @@ class Filter extends React.Component {
           <div>
             <Field type="text" component="input" name="q" placeholder="Поиск"/>
           </div>
+            <Field component="select" name="owner">
+              <option value="" disabled selected></option>
+              <option value="MIPT"> МФТИ </option>
+              <option value="Yandex"> Yandex </option>
+              <option value="Mail.ru"> Mail.ru </option>
+            </Field>
+          <div>
+          </div>
 
         </form>
     );

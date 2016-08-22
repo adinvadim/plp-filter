@@ -5,21 +5,9 @@ import { connect } from 'react-redux';
 
 import { getItems } from './actions';
 
-const filterItems = (items, values={}) => {
-  console.log('in filterItems', items, values)
-  let result = items;
-  if (values.new) {
-    result = result.filter( item => item.new )
-  }
-  if (values.type && values.type.length > 0) {
-    result = result.filter(item => values.type.indexOf(item.type) != -1)
-  }
+import { filterItems, mergeFilter } from './utils';
 
-  if(values.q) {
-    result = result.filter(item => item.title.indexOf(values.q) != -1)
-  }
-  return result;
-}
+
 
 class FilterCatalog extends Component {
 
@@ -29,10 +17,9 @@ class FilterCatalog extends Component {
 
   renderCollections(props) {
     const { collections, items, filter } = props;
-    console.log('items', items, filter)
     if (items && items.length > 0) {
       return collections.map(item => {
-        const filteredItems = filterItems(items, Object.assign({}, item.filter, filter));
+        const filteredItems = filterItems(items, mergeFilter({}, item.filter, filter));
         return <Collection items={filteredItems} title={item.title} />
       });
     } else {
@@ -54,7 +41,7 @@ class FilterCatalog extends Component {
 FilterCatalog.propTypes = {
   items : PropTypes.array,
   collections : PropTypes.array,
-  filter : PropTypes.array
+  filter : PropTypes.object
 }
 
 
