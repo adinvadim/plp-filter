@@ -68,10 +68,6 @@ CheckboxGroup.defaultProps = {
   value : []
 }
 
-CheckboxGroup.childContextTypes = {
-  checkboxGroup: PropTypes.object.isRequired
-}
-
 CheckboxGroup.displayName = 'CheckboxGroup';
 
 

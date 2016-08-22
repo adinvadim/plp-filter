@@ -1,6 +1,6 @@
 'use strict';
 
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import block from 'bem-cn';
 
 import './index.css'
@@ -10,18 +10,27 @@ import Filter from 'containers/Filter';
 
 var b = block('collection');
 
-class Collection extends React.Component {
+
+class Collection extends Component {
+
+  renderItems(items=[]) {
+    if (items.length > 0) {
+      return items.map(item => <CourseCard {...item} />)
+    } else {
+      return 'Пусто'
+    }
+  }
+
   render() {
-    let items = (this.props.items || []).map(item => {
-        return (
-            <CourseCard {...item}/>
-        );
-      })
+    const { items, title } = this.props;
+    console.log('items', items);
     return (
       <div className={b}>
-      { this.props.filter && (<Filter filter={this.props.filter}/>) }
+        <div className={b('title')}>
+          {title}
+        </div>
         <div className={b('items')}>
-            {items}
+            {this.renderItems(items)}
         </div>
       </div>
     );
@@ -30,12 +39,8 @@ class Collection extends React.Component {
 
 Collection.displayName = 'Collection';
 
-// Uncomment properties you need
 Collection.propTypes = {
-  items : React.PropTypes.array,
-};
-Collection.defaultProps = {
-  isFilter : false
+  items : PropTypes.array,
 };
 
 export default Collection;

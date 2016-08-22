@@ -25,12 +25,13 @@ const renderCheckboxGroup = props => {
 }
 
 const renderCheckbox = props => {
+  const { input, label } = props;
   return (
     <Checkbox
-      {...props}
-      onChange={props.input.onChange}
-      onFocus={props.input.onFocus}
-      onBlur={props.input.onBlur}
+      onChange={input.onChange}
+      onFocus={input.onFocus}
+      onBlur={input.onBlur}
+      label={label}
     />
   )
 }
@@ -42,7 +43,6 @@ class Filter extends React.Component {
   }
 
   render() {
-    const { filter } = this.props;
     return (
         <form onChange={(e) => {
         }}>

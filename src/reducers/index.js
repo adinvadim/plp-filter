@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { filterCatalog } from '../containers/FilterBox/reducers';
+import { filterCatalog } from 'containers/FilterCatalog/reducers';
 import { reducer as formReducer } from 'redux-form'
 
 

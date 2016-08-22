@@ -1,6 +1,6 @@
 import React, { Component, } from 'react';
 import { connect } from 'react-redux';
-import FilterCatalog from 'containers/FilterBox';
+import FilterCatalog from 'containers/FilterCatalog';
 
 import './index.css';
 

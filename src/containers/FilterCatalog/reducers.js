@@ -1,24 +1,10 @@
-import { REQUEST_ITEMS, RECEIVE_ITEM } from './constants';
-
-const filterItems = (items, values={}) => {
-  let result = items;
-  if (values.new) {
-    result = result.filter( item => item.new )
-  }
-  if (values.type && values.type.length > 0) {
-    result = result.filter(item => values.type.indexOf(item.type) != -1)
-  }
-
-  if(values.q) {
-    result = result.filter(item => item.title.indexOf(values.q) != -1)
-  }
-  return result;
-}
+import { REQUEST_ITEMS, RECEIVE_ITEMS } from './constants';
 
 
 export function filterCatalog(state={
   items : [],
   isFetching : false,
+  collections : []
 }, action) {
 
   switch(action.type) {

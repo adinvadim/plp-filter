@@ -8,6 +8,7 @@ const logger = createLogger({ collapsed : true })
 
 
 export default function configureStore(initialState) {
+  console.log(initialState);
   const store = createStore(
       createReducer(),
       initialState,

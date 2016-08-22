@@ -61,7 +61,7 @@ Checkbox.propTypes = {
   style: PropTypes.object,
   type: PropTypes.string,
   className: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   label: PropTypes.string,
   checked: PropTypes.bool,
   onChange: PropTypes.func,
@@ -76,10 +76,6 @@ Checkbox.defaultProps = {
   onChange() {},
   onFocus() {},
   onBlur() {}
-}
-
-Checkbox.contextTypes = {
-  checkboxGroup: PropTypes.object
 }
 
 
