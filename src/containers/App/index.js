@@ -1,7 +1,7 @@
 import React, { Component, } from 'react';
 import { connect } from 'react-redux';
+import FilterCatalog from 'containers/FilterCatalog';
 
-import FilterCollection from 'containers/FilterCollection'
 import './index.css';
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="index">
         <div className="notice">Фильтрация курсов</div>
-        <FilterCollection filter={this.props.filter}/>
+        <FilterCatalog subcatalog='bus'/>
       </div>
     )
   }

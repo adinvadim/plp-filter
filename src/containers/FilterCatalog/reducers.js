@@ -1,13 +1,12 @@
 import { REQUEST_ITEMS, RECEIVE_ITEMS } from './constants';
 
-export function filterCollection(state={
+
+export function filterCatalog(state={
   items : [],
   isFetching : false,
+  collections : []
 }, action) {
 
-  state = {
-    ...state,
-  };
   switch(action.type) {
     case RECEIVE_ITEMS:
       return {
@@ -24,4 +23,5 @@ export function filterCollection(state={
       return state;
   }
 }
+
 

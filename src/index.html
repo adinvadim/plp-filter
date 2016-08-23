@@ -9,6 +9,16 @@
 </head>
 <body>
   <div id="app">APPLICATION CONTENT</div>
+  <script type="text/javascript">
+    window.__INITIAL_STATE__ = {
+      catalog : {
+        collections : [
+          { title : 'Mipt', filter : { owner : 'MIPT' } },
+          { title : 'type course', filter : { type : ['course']} },
+        ]
+      }
+    }
+  </script>
 
   <script type="text/jacascript">
     window.React = React;

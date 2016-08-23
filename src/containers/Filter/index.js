@@ -25,12 +25,13 @@ const renderCheckboxGroup = props => {
 }
 
 const renderCheckbox = props => {
+  const { input, label } = props;
   return (
     <Checkbox
-      {...props}
-      onChange={props.input.onChange}
-      onFocus={props.input.onFocus}
-      onBlur={props.input.onBlur}
+      onChange={input.onChange}
+      onFocus={input.onFocus}
+      onBlur={input.onBlur}
+      label={label}
     />
   )
 }
@@ -42,7 +43,6 @@ class Filter extends React.Component {
   }
 
   render() {
-    const { filter } = this.props;
     return (
         <form onChange={(e) => {
         }}>
@@ -64,6 +64,14 @@ class Filter extends React.Component {
           <br />
           <div>
             <Field type="text" component="input" name="q" placeholder="Поиск"/>
+          </div>
+            <Field component="select" name="owner">
+              <option value="" disabled selected></option>
+              <option value="MIPT"> МФТИ </option>
+              <option value="Yandex"> Yandex </option>
+              <option value="Mail.ru"> Mail.ru </option>
+            </Field>
+          <div>
           </div>
 
         </form>

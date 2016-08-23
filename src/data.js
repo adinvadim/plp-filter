@@ -3,28 +3,28 @@ export const courseData = [
   {
     title : 'Название программы длинное - даже более чем это нужно согласно здравому смыслу',
     description : 'Uhuuuu',
-    uni: 'MIPT',
+    owner: ['MIPT'],
     type: 'course',
     duration: 34
   },
   {
     title : 'Название курса короткое',
     description : 'lol',
-    uni: 'MIPT, Yandex',
+    owner: ['MIPT', 'Yandex'],
     type: 'spec',
     duration: 20
   },
   {
     title : 'C++',
     description : 'Uhuuuu',
-    uni: 'MIPT',
+    owner: ['MIPT'],
     type: 'course',
     duration: 10
   },
   {
     title : 'Оптика',
     description : 'Uhuuuu',
-    uni: 'MIPT',
+    owner: ['MIPT'],
     type: 'course',
     duration: 403,
     new : true
@@ -32,7 +32,7 @@ export const courseData = [
   {
     title : 'Механика',
     description : 'Uhuuuu',
-    uni: 'MIPT',
+    owner: ['MIPT'],
     type: 'course',
     duration: 10,
     new : true
@@ -40,7 +40,7 @@ export const courseData = [
   {
     title : 'Бизнес',
     description : 'Uhuuuu',
-    uni: 'MIPT',
+    owner: ['MIPT'],
     type: 'course',
     duration: 403
   }
