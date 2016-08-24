@@ -14,6 +14,10 @@ export function filterItems(items=[], values={}) {
   if(values.owner) {
     result = result.filter(item => values.owner.indexOf(item.owner) != -1 || item.owner === values.owner);
   }
+
+  if(values.theme) {
+    result = result.filter( item => values.theme.indexOf(item.theme) != -1)
+  }
   return result;
 }
 

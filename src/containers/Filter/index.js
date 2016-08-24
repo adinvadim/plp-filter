@@ -6,6 +6,7 @@ import block from 'bem-cn';
 
 import CheckboxGroup from 'components/CheckboxGroup';
 import Checkbox from 'components/Checkbox';
+import Chosen from 'components/Chosen';
 
 
 const  { DOM: { input, select, textarea } } = React
@@ -61,8 +62,10 @@ class Filter extends React.Component {
     return (
         <form onChange={(e) => {
         }}>
+
           <Checkbox name="new" label="Новые" checked={filter.new} onChange={(e) => (changeFilter('new', e.target.checked))}/>
           <br />
+
           <label>Выберите тип:</label>
           <CheckboxGroup name="type" options={[
               { label : 'Курс', value : 'course' },
@@ -71,6 +74,13 @@ class Filter extends React.Component {
             value={filter.type}
             onChange={(e)=>(changeFilter('type', e))}
           />
+
+          <Chosen width="200px" name="theme" onChange={(val) => changeFilter('theme', val)} data-placeholder="Тема" multiple>
+            <option value="genetic">Генетика</option>
+            <option value="genomika">Геномика</option>
+            <option value="js">JS</option>
+          </Chosen>
+
 
         </form>
     );

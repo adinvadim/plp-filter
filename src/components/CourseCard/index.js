@@ -36,13 +36,18 @@ class CourseCard extends React.Component {
     //);
   //}
   render() {
-    const { title, description, type, owner} = this.props;
+    const { title, description, type, owner, theme, imgUrl } = this.props;
     return (
       <div className={b}>
-        <pre>title : {title}</pre>
-        <pre>owner : {owner}</pre>
-        <pre>type : {type}</pre>
-        <pre>new : {this.props.new} </pre>
+        <div className={b('image')}>
+          <img src={imgUrl} />
+        </div>
+        <div className={b('inner')}>
+          <pre>title : {title}</pre>
+          <pre>owner : {owner}</pre>
+          <pre>type : {type}</pre>
+          <pre>theme : {theme} </pre>
+        </div>
       </div>
     )
   }

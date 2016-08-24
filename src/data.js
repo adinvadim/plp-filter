@@ -27,21 +27,30 @@ export const courseData = [
     owner: ['MIPT'],
     type: 'spec',
     duration: 403,
-    new : true
+    new : true,
+    theme : 'js'
   },
   {
     title : 'Механика',
     description : 'Uhuuuu',
-    owner: ['MIPT'],
+    owner: ['MIT'],
     type: 'course',
     duration: 10,
-    new : true
+    new : true,
+    theme : 'js'
   },
   {
     title : 'Бизнес',
     description : 'Uhuuuu',
-    owner: ['MIPT'],
+    owner: ['Yandex'],
     type: 'course',
-    duration: 403
+    duration: 403,
+    theme : 'js'
+  },
+  {
+    title : 'МФТИ генетика',
+    owner : ['MIPT', 'Yandex'],
+    type : 'course',
+    theme : 'genetic'
   }
 ]
