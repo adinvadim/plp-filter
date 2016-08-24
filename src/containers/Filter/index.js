@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import { Field, FieldArray, reduxForm } from 'redux-form';
+import { changeFilter, changesFilter } from './actions';
 
 import block from 'bem-cn';
 
@@ -28,11 +28,18 @@ const renderCheckbox = props => {
   const { input, label } = props;
   return (
     <Checkbox
-      onChange={input.onChange}
-      onFocus={input.onFocus}
-      onBlur={input.onBlur}
+      {...props}
       label={label}
     />
+  )
+}
+
+const Field = props => {
+  const { children, ...rest } = props;
+  return (
+      <div className="form-field">
+        {children(...rest)}
+      </div>
   )
 }
 
@@ -42,37 +49,28 @@ class Filter extends React.Component {
     super(props);
   }
 
+  componentWillMount() {
+    this.props.changesFilter({
+      new : false,
+      type : []
+    })
+  }
+
   render() {
+    const { filter, changeFilter } = this.props;
     return (
         <form onChange={(e) => {
         }}>
-          <div>
-            <Field component={renderCheckbox} type="checkbox" name="new" label="Новые" />
-          </div>
+          <Checkbox name="new" label="Новые" checked={filter.new} onChange={(e) => (changeFilter('new', e.target.checked))}/>
           <br />
-          <div>
-            <label>Выберите тип:</label>
-            <Field
-              component={renderCheckboxGroup}
-              name="type"
-              options={[
-                { label : 'Курс', value : 'course' },
-                { label : 'Спец', value : 'spec'}
-              ]}
-            />
-          </div>
-          <br />
-          <div>
-            <Field type="text" component="input" name="q" placeholder="Поиск"/>
-          </div>
-            <Field component="select" name="owner">
-              <option value="" disabled selected></option>
-              <option value="MIPT"> МФТИ </option>
-              <option value="Yandex"> Yandex </option>
-              <option value="Mail.ru"> Mail.ru </option>
-            </Field>
-          <div>
-          </div>
+          <label>Выберите тип:</label>
+          <CheckboxGroup name="type" options={[
+              { label : 'Курс', value : 'course' },
+              { label : 'Спец', value : 'spec'}
+            ]}
+            value={filter.type}
+            onChange={(e)=>(changeFilter('type', e))}
+          />
 
         </form>
     );
@@ -80,9 +78,17 @@ class Filter extends React.Component {
 
 }
 
+function mapStateToProps(state, ownProps) {
+  return {
+    filter : state.catalog.filter
+  }
+}
 
-Filter = reduxForm({
-  form : 'filter'
-})(Filter);
+function mapDispatchToProps(dispatch) {
+  return {
+    changeFilter : (name, value) =>  dispatch(changeFilter(name, value)),
+    changesFilter : (filter) => dispatch(changesFilter(filter))
+  }
+}
 
-export default Filter
+export default connect(mapStateToProps, mapDispatchToProps)(Filter)

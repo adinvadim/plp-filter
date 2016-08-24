@@ -11,32 +11,14 @@ class Checkbox extends React.Component {
 
     this.state = {
       focus: false,
-      checked: this.props.checked || false
     };
 
-    this.handleBlur = this.handleBlur.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({checked : e.target.checked})
-    this.props.onChange(e)
-  }
-
-  handleFocus(e) {
-    this.setState({focus : true});
-    this.props.onFocus(e);
-  }
-
-  handleBlur(e) {
-    this.setState({focus : false});
-    this.props.onBlur(e);
-  }
 
   render() {
-    const props = { ...this.props };
-    const checked = this.state.checked;
+    const props = this.props;
+    const checked = props.checked;
     return (
       <label className={b({ checked, disabled : props.disabled})} style={props.style}>
         <span className={b('control')}>
@@ -44,9 +26,7 @@ class Checkbox extends React.Component {
             type={props.type}
             name={props.name}
             checked={checked}
-            onChange={this.handleChange}
-            onFocus={this.handleFocus}
-            onBlur={this.handleBlur}
+            onChange={this.props.onChange}
             value={props.value}
           />
         </span>
@@ -65,17 +45,13 @@ Checkbox.propTypes = {
   label: PropTypes.string,
   checked: PropTypes.bool,
   onChange: PropTypes.func,
-  onFocus: PropTypes.func,
   onBlur: PropTypes.func
 }
 
 Checkbox.defaultProps = {
   disabled: false,
   type: 'checkbox',
-  defaultChecked: false,
   onChange() {},
-  onFocus() {},
-  onBlur() {}
 }
 
 

@@ -5,6 +5,10 @@
   margin: 15px;
   color: rgb(159,165,159);
 
+  pre {
+    overflow: hidden;
+  }
+
   &__image {
     height: 200px;
     background-color: rgb(204,204,204);

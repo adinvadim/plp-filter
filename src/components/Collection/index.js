@@ -23,7 +23,6 @@ class Collection extends Component {
 
   render() {
     const { items, title } = this.props;
-    console.log('items', items);
     return (
       <div className={b}>
         <div className={b('title')}>

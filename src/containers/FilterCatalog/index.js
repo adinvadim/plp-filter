@@ -19,7 +19,7 @@ class FilterCatalog extends Component {
     const { collections, items, filter } = props;
     if (items && items.length > 0) {
       return collections.map(item => {
-        const filteredItems = filterItems(items, mergeFilter({}, item.filter, filter));
+        const filteredItems = filterItems(item.items, filter);
         return <Collection items={filteredItems} title={item.title} />
       });
     } else {
@@ -49,9 +49,10 @@ function mapStateToProps(state, ownProps) {
   const props = {
     items : state.catalog.items,
     collections : state.catalog.collections,
-    filter : state.form && state.form.filter && state.form.filter.values || []
+    filter : state.catalog.filter
   }
   return props;
 }
+
 
 export default connect(mapStateToProps)(FilterCatalog);

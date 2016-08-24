@@ -10,7 +10,7 @@ export const courseData = [
   {
     title : 'Название курса короткое',
     description : 'lol',
-    owner: ['MIPT', 'Yandex'],
+    owner: ['MIPT'],
     type: 'spec',
     duration: 20
   },
@@ -25,7 +25,7 @@ export const courseData = [
     title : 'Оптика',
     description : 'Uhuuuu',
     owner: ['MIPT'],
-    type: 'course',
+    type: 'spec',
     duration: 403,
     new : true
   },
