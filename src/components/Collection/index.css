@@ -1,5 +1,16 @@
 .collection {
 
+  background-color: #eee;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-top:20px;
+  padding-bottom: 20px;
+
+  &__title {
+    font-weight: bold;
+    text-align: center;
+  }
+
   &__items {
     width: 100%;
     display: flex;
